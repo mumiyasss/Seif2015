@@ -33,32 +33,32 @@
  * Good luck, lol :D
  */
 
-//Подключаем нужные программе библиотеки.
+//Plugging all important libraries.
 #include <iostream>
 #include <cstring>
 #include <cmath>
 #include <windows.h>
 
-using namespace std; //Пространство имён.
+using namespace std; //Namespace.
 
 //
-// Описание функций.
+// Functions description.
 //
 
-void hello();                 //Программа приветствия, берущая имя пользователя.
-void command(bool b = false); //Берём комманду пользователя, для совершения некоторого действия.
-void combase(char comd[15]);  //По комманде, функция вызовет нужное действие;
-void seifenc();               //Шифратор текста.
-void seifdec();               //Дешифратор текста.
-void clrscr(int size = 25);   //Очистка экрана.
-void calc();                  //Калькулятор.
-bool retry();                 //Эта функция спрашивает пользователя, нужно ли повторить операцию.
-void days();                  //Вводятся две даты, считаются дни между ними.
-void memory();                //Игра на запоминание чисел.
+void hello();                 //Hello program, which takes user's name.
+void command(bool b = false); //Taking user's command, to call some function.
+void combase(char comd[15]);  //By the command, needed function will be called;
+void seifenc();               //Text encryptor.
+void seifdec();               //Text decryptor.
+void clrscr(int size = 25);   //Screen cleaning.
+void calc();                  //Calculator.
+bool retry();                 //This function ask to user, should the previous operation be restarted or not.
+void days();                  //Two dates are entering, and program show, how many days were between this days.
+void memory();                //It's a game to remember numbers.
 
 
-// Описание глобальных переменных.
-char name[15]; // Имя пользователя.
+// Description of global variables.
+char name[15]; // User's name.
 
 int main() {
 
@@ -80,7 +80,7 @@ void hello()
 
 bool retry()
 {
-    char r;   //ответ на retry.
+    char r;   //answer to retry.
     cout << "Retry[y/n]? ";
     cin >> r;
     if (r == 'y') return true; else
@@ -90,26 +90,26 @@ bool retry()
             retry();
         }
 
-    return false;  //Самое главное - перестраховаться!!!
+    return false;  //The most important thing is to have a secure!!!
 }
 
 void command(bool b)
 {
-    char e[] = "exit"; //команда завершиния программы
+    char e[] = "exit"; //command to finish the program
     
     if (b == true) cout << "There is no such a command. Please, try again:)\n"; else
     clrscr();
-    char comd[15]; //Собственно, сама комманда.
+    char comd[15]; //and this the comand itself.
 
     cout << "Type your command: ";
     cin >> comd;
 
-    if (strcmp(comd, e) == 0) exit(0); //выход
+    if (strcmp(comd, e) == 0) exit(0); //exit
 
 
-    clrscr();      //Чистим экран.
+    clrscr();      //Cleaning the screen.
 
-    combase(comd); //Обрабатываем команду.
+    combase(comd); //Working with command.
 }
 
 void clrscr(int size)
@@ -119,7 +119,7 @@ void clrscr(int size)
 
 void combase(char comd[15])
 {
-    char x1[] = "seifenc";    //База названий команд.
+    char x1[] = "seifenc";    //Base of commands.
     char x2[] = "seifdec";
     char x3[] = "calc";
     char x4[] = "days";
@@ -130,24 +130,24 @@ void combase(char comd[15])
     if (strcmp(comd, x3) == 0) calc(); else
     if (strcmp(comd, x4) == 0) days(); else
     if (strcmp(comd, x5) == 0) memory(); else
-    command(true); //Возвращаем сообщение об ошибке, только в самой command().
+    command(true); //Return the error message, but only in the command() itself.
 }
 
 void seifenc()
 {
-    char x[300];   //Само сообщение
+    char x[300];   //The message
     int l, i;
 
-    fflush(stdin); // Подчистим нулевой символ введеный с клавиатуры для работы gets();
+    fflush(stdin); // Cleaning a null character for working with gets();
 
     cout << "Don't type more than 300 characters!\n-> ";
-    gets(x);       //Считываем текст.
-    l = strlen(x); //Определяем длину текса.
+    gets(x);       //Reading the text.
+    l = strlen(x); //Defining the text length.
 
 
     for (i=0; i<l; i++)
     {
-        if (x[i]=='a') x[i]='o'; else   //Оффигенное шифрование, знаю
+        if (x[i]=='a') x[i]='o'; else   //Ammazing encryption, I know
         if (x[i]=='b') x[i]='g'; else
         if (x[i]=='c') x[i]='w'; else
         if (x[i]=='d') x[i]='a'; else
@@ -195,14 +195,14 @@ void seifenc()
 
 void seifdec()
 {
-    char x[300];   //Само сообщение
+    char x[300];   //The message
     int l, i;
 
-    fflush(stdin); // Подчистим нулевой символ введеный с клавиатуры для работы gets();
+    fflush(stdin); // Cleaning a null character entered from the keyboard for working with gets();
 
     cout << "Don't type more than 300 characters!\n-> ";
-    gets(x);       //Считываем текст.
-    l = strlen(x); //Определяем длину текса.
+    gets(x);       //Reading the text.
+    l = strlen(x); //Defining the text length.
 
 
     for (i=0; i<l; i++)
