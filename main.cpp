@@ -12,7 +12,7 @@
  * It's a free software.
  * These program was written just for fun
  * and to write all my new knowledge in C++
- * programming language in one project:)
+ * programing language in one project:)
  *
  * How to:
  *
